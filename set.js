@@ -184,6 +184,7 @@ define(function () {
             },
             "triads": {
                 "(8) (3-1) Chromatic Trichord": {
+                    "diatonic": false,
                     "a": {
                         "name": "Chromatic Trichord",
                         "chordSymbol": "",
@@ -228,6 +229,7 @@ define(function () {
                     }
                 },
                 "(9) (3-2) Phrygian Trichord": {
+                    "diatonic": true,
                     "a": {
                         "name": "Phrygian Trichord",
                         "chordSymbol": "",
@@ -272,6 +274,7 @@ define(function () {
                     }
                 },
                 "(10) (3-2M) Minor Trichord": {
+                    "diatonic": true,
                     "a": {
                         "name": "Minor Trichord",
                         "chordSymbol": "",
@@ -316,6 +319,7 @@ define(function () {
                     }
                 },
                 "(11) (3-3) Phrygian Major Trichord": {
+                    "diatonic": false,
                     "a": {
                         "name": "Phrygian Major Trichord",
                         "chordSymbol": "",
@@ -360,6 +364,7 @@ define(function () {
                     }
                 },
                 "(12) (3-3M) Major #2 Trichord": {
+                    "diatonic": false,
                     "a": {
                         "name": "Major #2 Trichord",
                         "chordSymbol": "",
@@ -404,6 +409,7 @@ define(function () {
                     }
                 },
                 "(13) (3-4) Major 7 no5": {
+                    "diatonic": true,
                     "b": {
                         "name": "",
                         "chordSymbol": "Major 7 no5",
@@ -448,6 +454,7 @@ define(function () {
                     }
                 },
                 "(14) (3-4M) Major 7 no3": {
+                    "diatonic": true,
                     "c": {
                         "name": "",
                         "chordSymbol": "Major 7 no3",
@@ -492,6 +499,7 @@ define(function () {
                     }
                 },
                 "(15) (3-5) sus#4": {
+                    "diatonic": true,
                     "c": {
                         "name": "",
                         "chordSymbol": "sus#4",
@@ -536,6 +544,7 @@ define(function () {
                     }
                 },
                 "(16) (3-5M) Diminished sus4": {
+                    "diatonic": true,
                     "a": {
                         "name": "Rite Chord 1",
                         "chordSymbol": "Diminished sus4",
@@ -580,6 +589,7 @@ define(function () {
                     }
                 },
                 "(17) (3-6) Major Trichord": {
+                    "diatonic": true,
                     "a": {
                         "name": "Major Trichord",
                         "chordSymbol": "",
@@ -624,6 +634,7 @@ define(function () {
                     }
                 },
                 "(18) (3-7) Minor 7 no5": {
+                    "diatonic": true,
                     "b": {
                         "name": "",
                         "chordSymbol": "Minor 7 no5",
@@ -668,6 +679,7 @@ define(function () {
                     }
                 },
                 "(19)  (3-7M) Dominant 7 no3": {
+                    "diatonic": true,
                     "c": {
                         "name": "",
                         "chordSymbol": "Dominant 7 no3",
@@ -712,6 +724,7 @@ define(function () {
                     }
                 },
                 "(20) (3-8) Dominant 7 no5": {
+                    "diatonic": true,
                     "b": {
                         "name": "Italian Augmented Sixth",
                         "chordSymbol": "Dominant 7 no5",
@@ -756,6 +769,7 @@ define(function () {
                     }
                 },
                 "(21) (3-8M) Half-Diminished 7 no3": {
+                    "diatonic": true,
                     "c": {
                         "name": "",
                         "chordSymbol": "Half-Diminished 7 no3",
@@ -800,6 +814,7 @@ define(function () {
                     }
                 },
                 "(22) (3-9) sus4": {
+                    "diatonic": true,
                     "c": {
                         "simple": true,
                         "name": "",
@@ -846,6 +861,7 @@ define(function () {
                     }
                 },
                 "(23) (3-10) Diminished Triad": {
+                    "diatonic": true,
                     "a": {
                         "simple": true,
                         "name": "",
@@ -891,6 +907,7 @@ define(function () {
                     }
                 },
                 "(24) (3-11) Minor Triad": {
+                    "diatonic": true,
                     "a": {
                         "simple": true,
                         "name": "",
@@ -936,6 +953,7 @@ define(function () {
                     }
                 },
                 "(25) (3-11M) Major Triad": {
+                    "diatonic": true,
                     "a": {
                         "simple": true,
                         "name": "",
@@ -981,6 +999,7 @@ define(function () {
                     }
                 },
                 "(26) (3-12S) Augmented Triad": {
+                    "diatonic": false,
                     "a": {
                         "simple": true,
                         "name": "",
@@ -37198,7 +37217,7 @@ define(function () {
                         ]
                     }
                 },
-                "(323) (8-Y15) ": {
+                "(323) (8-Y15) Ionian #2 #6 add b2": {
                     "a": {
                         "name": "",
                         "chordSymbol": "Minor 6 (b9 9 11 #11)",
@@ -43801,7 +43820,7 @@ define(function () {
                     }
                 }
             },
-            "dodecads": {
+            "dodecad": {
                 "(351) (12-1) Chromatic Scale": {
                     "a": {
                         "name": "Chromatic Scale",
