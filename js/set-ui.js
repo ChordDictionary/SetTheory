@@ -2,9 +2,8 @@
 /*globals define: false */
 define([
     '../set',
-    '12tone',
-    'canvas-datagrid'
-], function (set, tt, canvasDatagrid) {
+    '12tone'
+], function (set, tt) {
     'use strict';
     var container = document.createElement('div'),
         grid;
@@ -35,6 +34,7 @@ define([
             parentNode: container,
             tree: true
         });
+        grid.style.width = '100%';
         var membership = [];
         Object.keys(set.list).forEach(function (mName) {
             if (mName === 'nullSet') { return; }
@@ -42,18 +42,18 @@ define([
                 'Membership': mName
             });
         });
-        grid.addEventListener('rendertext', function (ctx, cell) {
-            if (cell.style === 'rowHeaderCell') {
-                cell.formattedValue = tt.membersRomanMap[this.data[cell.rowIndex].Membership];
+        grid.addEventListener('rendertext', function (e) {
+            if (e.cell.style === 'rowHeaderCell') {
+                e.cell.formattedValue = tt.membersRomanMap[this.data[e.cell.rowIndex].Membership];
             }
         });
-        grid.addEventListener('expandtree', function expandTree(fGrid, data, rowIndex) {
-            var famlies = [];
-            Object.keys(set.list[data.Membership]).forEach(function (fName) {
-                var isDiatonic = tt.isDiatonic(set.list[data.Membership][fName]),
+        grid.addEventListener('expandtree', function expandTree(e) {
+            var famlies = [], fGrid = e.treeGrid, fData = e.data;
+            Object.keys(set.list[e.data.Membership]).forEach(function (fName) {
+                var isDiatonic = tt.isDiatonic(set.list[e.data.Membership][fName]),
                     headingRegex = /\((\d+)\) +\((\S+-\S+)\) (.+)/,
                     headingMatch;
-                set.list[data.Membership][fName].isDiatonic = isDiatonic;
+                set.list[e.data.Membership][fName].isDiatonic = isDiatonic;
                 headingMatch = headingRegex.exec(fName);
                 if (!headingMatch) {
                     throw new Error('Eric fucked up again. ☞ ' + fName);
@@ -67,15 +67,16 @@ define([
                 });
             });
             fGrid.attributes.tree = true;
-            fGrid.addEventListener('rendertext', function (ctx, cell) {
-                if (cell.style === 'rowHeaderCell') {
-                    cell.formattedValue = this.data[cell.rowIndex].index;
+            fGrid.addEventListener('rendertext', function (e) {
+                if (e.cell.style === 'rowHeaderCell') {
+                    e.cell.formattedValue = this.data[e.cell.rowIndex].index;
                     return;
                 }
             });
-            fGrid.addEventListener('expandtree', function expandTree(mGrid, mData, rowIndex) {
+            fGrid.addEventListener('expandtree', function expandTree(ev) {
+                var mGrid = ev.treeGrid, mData = ev.data;
                 var members = [],
-                    family = set.list[data.Membership][mData.fName];
+                    family = set.list[e.data.Membership][mData.fName];
                 if (typeof family !== 'object') {
                     throw new Error('Family should be an object');
                 }
@@ -91,9 +92,9 @@ define([
                         'Set': member.set.join(', ')
                     });
                 });
-                mGrid.addEventListener('rendertext', function (ctx, cell) {
-                    if (cell.style === 'rowHeaderCell') {
-                        cell.formattedValue = tt.romanize(tt.memberNames.indexOf(this.data[cell.rowIndex].memberName) + 1);
+                mGrid.addEventListener('rendertext', function (e) {
+                    if (e.cell.style === 'rowHeaderCell') {
+                        e.cell.formattedValue = tt.romanize(tt.memberNames.indexOf(this.data[e.cell.rowIndex].memberName) + 1);
                     }
                 });
                 mGrid.data = members;
